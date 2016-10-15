@@ -146,7 +146,7 @@ Now, we could write an interpreter into something like
 StateT[Option, (Map[Ref, Value], Map[Key, Value]), ?]
 ```
 
-but we will do something else. We will write an interpreter into `Free[Op, ?]`! Why would I do something like that, you ask, if the whole point of this post is to avoid `Free`? The only reason I chose `Free[Op, ?]` as the target monad for this demonstration is that at the same it proves that the `Free`-less approach _doesn't lose any generality_ over `Free`.
+but we will do something else. We will write an interpreter into `Free[Op, ?]`! Why would I do something like that, you ask, if the whole point of this post is to avoid `Free`? The only reason I chose `Free[Op, ?]` as the target monad for this demonstration is that at the same time it proves that the `Free`-less approach _doesn't lose any generality_ over `Free`: the `Free` representation can be recovered from the `Free`-less one.
 
 In order to support composition with other effects, our implementation will work with any monad that is "greater" than the target monad. A monad `G[_]` is said to be _greater_ than (or equal to) to monad `F[_]`, written `G |>=| F`, if all the effects of `F[_]` are expressible in `G[_]`. `|>=|` is a typeclass in `scalaz`, also called `MonadPartialOrder`.
 
