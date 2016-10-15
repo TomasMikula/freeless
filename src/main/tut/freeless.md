@@ -10,9 +10,11 @@ However, they also come with a price in terms of:
  - _Object allocations:_ We first build up a data structure describing the program.
  - _Pattern matching:_ When interpreting the program description, the interpreter pattern matches on the instructions. For large instruction sets (algebras), this is non-negligible.
 
-This text presents an alternative approach that retains all the nice properties of free monads, but avoids the _pattern matching_ penalty and in some cases also the extra _memory allocations_. In my opinion, this is how you would design a modular architecture if you had not heard about free monads before.
+This text presents an alternative approach that retains all the nice properties of free monads, but avoids the _pattern matching_ penalty and in some cases also the extra _object allocations_.
 
-We will be using the Scala programming language with the [scalaz](https://github.com/scalaz/scalaz) library.
+The presented approach is how you might design a modular architecture if you had never heard of free monads before.
+
+We will be using the Scala programming language with the [scalaz](https://github.com/scalaz/scalaz) library. Some familiarity with `Free` monads is assumed.
 
 We start with an example using `Free`, and then present its `Free`-less equivalent. 
 
